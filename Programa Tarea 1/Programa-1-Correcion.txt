@@ -1,0 +1,33 @@
+Descripción del funcionamiento:
+fork(): La función fork() se utiliza para crear un nuevo proceso. Devuelve:
+
+-1 si ocurre un error al crear el proceso.
+0 en el proceso hijo.
+El ID del proceso hijo en el proceso padre.
+switch (pid=fork()): Se evalúa el valor devuelto por fork().
+
+En el caso -1, se detecta un error y se llama a exit(1) para salir del programa.
+En el caso 0, se ejecuta el código del proceso hijo, que imprime el mensaje: "Proceso hijo. PID = %d\n".
+En el default, que corresponde al proceso padre, se imprime el mensaje: "Proceso padre. PID = %d\n". 
+Además, el proceso padre espera a que el proceso hijo termine usando wait(&status).
+Problemas que impedirían la compilación:
+Faltan prototipos de funciones:
+
+La función fork() requiere la inclusión de #include <unistd.h>.
+La función wait() requiere la inclusión de #include <sys/wait.h>.
+Formateo del código:
+
+El código tiene pequeños errores de formateo, como la falta de indentación en algunas líneas y 
+a falta de un tipo de retorno en la función main(). En C, la función main() debe retornar un valor entero (int).
+Declaración de variables:
+
+Las variables pid y status están correctamente declaradas como enteros, pero es importante verificar 
+que el valor de fork() esté siendo almacenado correctamente.
+
+
+
+Explicación de las correcciones:
+Inclusión de librerías: Se añadieron #include <unistd.h> para fork() y #include <sys/wait.h> para wait().
+Gestión de errores: Se usa la función perror() para dar un mensaje de error más detallado.
+Uso de getpid(): En lugar de mostrar pid directamente, se utiliza getpid() para imprimir el PID del 
+proceso actual, ya que es más adecuado en este contexto.
