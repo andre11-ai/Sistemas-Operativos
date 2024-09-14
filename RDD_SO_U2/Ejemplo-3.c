@@ -1,7 +1,9 @@
-// Ejemplo 1:
+// S.O.AGREVAl
+// Fecha : 13 / 09 / 2024
+// Version : 1.1 del Ejemplo 3 Dada por el profesor
 
-// En este modelo, varios hilos de usuario se mapean a un número menor de hilos del sistema operativo, 
-//permitiendo una implementación más eficiente y adaptativa de hilos.
+// En este modelo, varios hilos de usuario se mapean a un número menor de hilos del sistema operativo,
+// permitiendo una implementación más eficiente y adaptativa de hilos.
 
 // Código 3. Modelo de Hilos Independientes (M:N Mapping).
 

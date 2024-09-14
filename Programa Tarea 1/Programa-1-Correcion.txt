@@ -1,3 +1,8 @@
+// S.O.AGREVAl
+// Fecha : 13 / 09 / 2024
+// Version : 1.2 txt de informacion 
+
+
 Descripción del funcionamiento:
 fork(): La función fork() se utiliza para crear un nuevo proceso. Devuelve:
 
@@ -19,11 +24,10 @@ Formateo del código:
 
 El código tiene pequeños errores de formateo, como la falta de indentación en algunas líneas y 
 a falta de un tipo de retorno en la función main(). En C, la función main() debe retornar un valor entero (int).
-Declaración de variables:
+Declaración de variables.
 
 Las variables pid y status están correctamente declaradas como enteros, pero es importante verificar 
 que el valor de fork() esté siendo almacenado correctamente.
-
 
 
 Explicación de las correcciones:

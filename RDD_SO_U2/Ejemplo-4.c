@@ -1,5 +1,7 @@
-//Ejemplo 2:
-            
+// S.O.AGREVAl
+// Fecha : 13 / 09 / 2024
+// Version : 1.1 del Ejemplo 4 Dada por el profesor
+
 //En este modelo, los hilos son gestionados y soportados directamente por el sistema operativo a nivel de kernel, proporcionando un mayor nivel de control y 
 //cooperación entre hilos y procesos.
 

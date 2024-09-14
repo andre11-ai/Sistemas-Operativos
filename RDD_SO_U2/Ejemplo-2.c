@@ -1,3 +1,7 @@
+// S.O.AGREVAl
+// Fecha : 13 / 09 / 2024
+// Version : 1.1 del Ejemplo 2 Dada por el profesor
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>

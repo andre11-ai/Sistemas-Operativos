@@ -1,4 +1,7 @@
-// Ejemplo 3:
+// S.O.AGREVAl
+// Fecha : 13 / 09 / 2024
+// Version : 1.1 del Ejemplo 5 Dada por el profesor
+
 // En este modelo, los hilos son gestionados completamente  a nivel de usuario sin soporte directo
 // del sistema operativo, proporcionando una implementación más ligera y eficiente de hilos.
 

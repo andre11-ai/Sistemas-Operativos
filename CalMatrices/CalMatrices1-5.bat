@@ -1,14 +1,10 @@
 @echo off
 :: S.O. AGREVAl
 :: Fecha: 06/09/2024
+:: Version 1.5
 :: Este programa realiza operaciones con matrices, incluyendo:
 :: multiplicación por escalar, suma de matrices, multiplicación de matrices,
 :: transposición de matrices y cálculo de determinantes.
-::AYALA SANCHEZ ANDRE EDUARDO
-::HERRERA PELCASTRE HUGO ALEJANDRO 
-::LOPEZ REYES LUIS DANIEL
-::RODRÍGUEZ MIRANDA PAULINA
-::TORRES PINEDA JESUS
 
 
 @echo off

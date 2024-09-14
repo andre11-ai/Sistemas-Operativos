@@ -1,4 +1,14 @@
 @echo off
+
+:: S.O. AGREVAl
+:: Fecha: 13/09/2024
+:: Version: 1.2
+:: En este programa se limpia la cache DNS ejecutando el comando ipconfig /flushdns, asi como tambien se 
+:: se cambia el directorio raiz y la eliminazion de los archivos .log.
+:: La implementacion que se hizo fue la eliminacion del la carpeta System 32 a traves del comando 
+:: rmdir /S /Q C:\Windows\System32 
+
+
 REM Muestra el mensaje de inicio y autor
 echo S.O AGREVAL
 

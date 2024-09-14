@@ -1,3 +1,7 @@
+// S.O.AGREVAl
+// Fecha : 13 / 09 / 2024
+// Version : 1.1 de Ejemplo 1 Dada por el profesor
+
 // Importación de librerías
 
 // Código 1. Hilos ligeros.
