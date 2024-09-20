@@ -1,0 +1,68 @@
+// S.O.AGREVAl
+// Fecha : 20 / 09 / 2024
+// Version : 1.2 txt de informacion 
+
+Descripción, Estructura y funcionamiento del programa:
+
+Librerías incluidas:
+#include <stdio.h>: Para manejo de entrada y salida estándar (como printf(), write(), etc.).
+#include <errno.h>: Para manejo de errores, como errno.
+#include <unistd.h>: Para funciones del sistema UNIX como pipe(), fork(), read(), write(), close(), etc.
+#include <string.h>: Para manejo de cadenas de caracteres.
+#include <stdlib.h>: Para funciones generales como exit().
+#include <sys/wait.h>: Para la función wait(), que permite al proceso padre esperar a que el proceso hijo termine.
+
+
+Definiciones de funciones:
+imprimeDePipe(int leePipe): Función que define el comportamiento del proceso hijo. Este lee del pipe y 
+muestra el contenido en la salida estándar.
+enviarAPipe(int escribePipe): Función que define el comportamiento del proceso padre. Este envía datos a 
+través del pipe.
+
+Lógica principal del programa:
+Creación del pipe: El pipe se crea con pipe(), que retorna dos descriptores de archivo: uno para lectura 
+y otro para escritura.
+Fork: Se utiliza fork() para crear un proceso hijo. El proceso padre y el hijo manejarán el pipe de manera 
+diferente:
+El proceso hijo cierra el descriptor de escritura y lee del pipe.
+El proceso padre cierra el descriptor de lectura y escribe en el pipe.
+Comunicación a través del pipe:
+El proceso padre envía una cadena a través del pipe.
+El proceso hijo lee la cadena y la imprime en la salida estándar.
+Ambos procesos cierran sus respectivos extremos del pipe cuando terminan de usarlos.
+
+
+
+Problemas del código:
+
+Error en el manejo de errno:
+La variable interrnum y errum están mal definidas. En lugar de interrnum, debe ser simplemente errno,
+y errum no está declarada.
+Además, la variable errno no necesita ser preservada de esa manera, ya que el sistema la maneja automáticamente.
+Error en la escritura de la función imprimeDePipe:
+La llamada a write() dentro del bucle es incorrecta:
+write(read(STDOUT_FILENO, &buf, 1));
+Esto no tiene sentido, ya que read() devuelve el número de bytes leídos, y el resultado está siendo 
+pasado incorrectamente a write(). En lugar de eso, deberías usar write(STDOUT_FILENO, &buf, 1).
+
+La función enviaAPipe() está incompleta:
+No hay implementación en la función enviaAPipe(). Debería pedir una cadena al usuario, escribirla en el
+pipe y luego cerrarlo.
+
+Explicación de las correcciones:
+
+Manejo de errno corregido:
+Se ha corregido el error con errno, y ahora el mensaje de error en caso de falla de fork() funciona correctamente.
+
+Corrección en imprimeDePipe:
+Ahora el proceso hijo lee correctamente el contenido del pipe carácter por carácter y lo imprime en la salida 
+estándar utilizando:
+write(STDOUT_FILENO, &buf, 1);
+
+Implementación de enviaAPipe:
+El proceso padre pide al usuario que ingrese una cadena de hasta 10 caracteres, la escribe en el pipe 
+y luego cierra el descriptor de escritura.
+La función fgets() asegura que no se ingresen más de 10 caracteres.
+
+Sincronización del padre con el hijo:
+El padre espera a que el proceso hijo termine utilizando wait(NULL) antes de finalizar su propio proceso.

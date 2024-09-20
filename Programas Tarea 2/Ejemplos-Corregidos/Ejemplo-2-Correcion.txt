@@ -1,0 +1,65 @@
+// S.O.AGREVAl
+// Fecha : 20 / 09 / 2024
+// Version : 1.2 txt de informacion 
+
+Descripción, Estructura y funcionamiento del programa:
+
+Librerías incluidas:
+#include <stdio.h>: Para entrada/salida estándar (como printf()).
+#include <unistd.h>: Para la función execv() y sleep().
+#include <string.h>: Para manipulación de cadenas de texto, como strcpy().
+#include <stdlib.h>: Para funciones de control del programa como exit().
+
+Función main():
+La función principal toma dos argumentos: argc (número de argumentos pasados al programa) y 
+argv (vector de cadenas que contienen los argumentos).
+Imprime los argumentos que ha recibido el programa invocador (el propio programa).
+
+Bucle for:
+Un bucle recorre los argumentos recibidos e imprime el contenido de cada uno.
+
+Modificación de argv[0]:
+El programa cambia el valor de argv[0] a "execprog2" usando strcpy(). Esta línea intenta modificar el 
+nombre del programa que va a ser ejecutado. 
+
+execv():
+execv() reemplaza el proceso actual con el programa execprog2, pasando los mismos argumentos que el 
+programa original (argv).
+Si execv() falla (devuelve un valor negativo), imprime un mensaje de error y termina el programa con un 
+estado de error (exit(1)).
+
+Salida del programa:
+Si la llamada a execv() es exitosa, el programa nunca ejecutará las líneas posteriores, ya que el proceso 
+actual será reemplazado por execprog2.
+Si execv() falla, se imprime un mensaje de error, y luego el programa termina con exit(1).
+
+Problemas del código:
+
+Doble bucle for:
+El código contiene dos bucles for anidados innecesariamente:
+for (i = 0; i < argc; i++)
+    for (i = 0; i < argc; i++)
+Esto es incorrecto, ya que el segundo for está reescribiendo el valor de i. Esto causaría que el código no 
+funcione correctamente.
+
+Corrección: Eliminamos el segundo for.
+Modificación de argv[0] con strcpy():
+Aunque se intenta cambiar argv[0], esto puede causar un comportamiento inesperado, ya que modificar 
+argv[0] directamente puede no estar permitido en algunos sistemas si los argumentos fueron almacenados 
+en memoria de solo lectura.
+
+
+Explicación de las correcciones:
+
+Bucle para imprimir argumentos:
+
+Ahora solo hay un bucle que imprime correctamente todos los argumentos pasados al programa.
+Uso de execv():
+
+El programa hace una pausa de 10 segundos usando sleep(10) antes de intentar ejecutar execprog2 con los mismos a
+rgumentos.
+Si execv() falla (por ejemplo, si execprog2 no existe), imprime un mensaje de error y termina con un código de 
+error (exit(1)).
+Eliminación de la modificación de argv[0]:
+
+Para evitar problemas con la modificación de argv[0], se ha eliminado esa línea.

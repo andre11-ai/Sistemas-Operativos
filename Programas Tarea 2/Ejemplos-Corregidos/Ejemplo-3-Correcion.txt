@@ -1,0 +1,41 @@
+// S.O.AGREVAl
+// Fecha : 20 / 09 / 2024
+// Version : 1.2 txt de informacion 
+
+Descripción, Estructura y funcionamiento del programa:
+
+Librerías incluidas:
+#include <unistd.h>: Esta biblioteca proporciona acceso a la API POSIX, que incluye funciones como 
+fork(), getpid(), getppid(), y sleep().
+#include <stdlib.h>: Proporciona funciones generales como exit(), la cual se usa para terminar el programa.
+#include <stdio.h>: Proporciona funciones para la entrada y salida estándar, como printf().
+
+Funcionamiento del programa:
+El programa empieza por crear un proceso hijo con la función fork(), la cual retorna un valor que 
+determina si el código que se está ejecutando pertenece al proceso padre o al proceso hijo.
+fork(): La función fork() devuelve diferentes valores dependiendo de si está siendo ejecutada en el proceso
+padre o en el proceso hijo:
+Retorna -1 si no pudo crear el proceso hijo.
+Retorna 0 si se está ejecutando en el proceso hijo.
+Retorna el PID (ID del proceso hijo) al proceso padre.
+
+Control de flujo con switch:
+Después de la llamada a fork(), se utiliza un switch para manejar los diferentes valores devueltos por fork():
+Caso -1 (Error): Si fork() falla, se imprime un mensaje de error indicando que no se pudo crear el proceso hijo.
+Caso 0 (Proceso hijo): En este caso, se imprime un mensaje con el PID del proceso hijo (obtenido mediante 
+getpid()) y el PID del proceso padre (obtenido con getppid()). Luego, el proceso hijo entra en una pausa de 
+10 segundos usando sleep(10).
+Caso default (Proceso padre): En el caso de que el proceso sea el padre, se imprime su propio PID y el PID 
+de su hijo (retornado por fork()).
+
+
+
+pid_t rf;: Declara una variable rf de tipo pid_t, que se usa para almacenar el valor de retorno de fork().
+rf = fork();: Llama a fork(), creando un nuevo proceso hijo y almacenando el valor de retorno en rf.
+switch (rf): Se utiliza para diferenciar entre el proceso padre, el hijo, o si hubo un error.
+Caso -1: Imprime un mensaje de error si no se pudo crear el proceso hijo.
+Caso 0 (hijo): Imprime el PID del hijo y del padre, luego duerme por 10 segundos.
+Caso default (padre): Imprime el PID del padre y el PID del hijo.
+printf("\nFinal de ejecución de %d\n", getpid());: Esta línea se ejecuta tanto en el proceso padre como en el hijo. 
+Imprime un mensaje de fin de ejecución con el PID del proceso que está terminando.
+exit(0);: Finaliza el programa indicando que terminó correctamente sin errores.

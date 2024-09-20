@@ -1,0 +1,42 @@
+// S.O.AGREVAl
+// Fecha : 20 / 09 / 2024
+// Version : 1.2 txt de informacion 
+
+Descripción, Estructura y funcionamiento del programa:
+
+Librerías incluidas:
+#include <unistd.h>: Esta librería proporciona acceso a la API POSIX, que incluye funciones como fork(),
+getpid(), getppid(), y sleep().
+#include <stdio.h>: Se utiliza para la entrada y salida estándar, como printf().
+#include <stdlib.h>: Proporciona funciones de utilidad general, como exit().
+
+Variables:
+pid_t rf;: Esta variable almacenará el valor de retorno de fork(). pid_t es el tipo de dato para almacenar 
+IDs de procesos (PIDs). 
+
+fork() y creación de procesos:
+rf = fork();: Esta llamada crea un nuevo proceso hijo. El valor de retorno de fork() es:
+-1: Si no se pudo crear el proceso hijo.
+0: Si el proceso actual es el hijo.
+Un valor mayor que 0 (el PID del hijo): Si el proceso actual es el padre.
+
+Estructura switch:
+Dependiendo del valor de rf, el programa usa un switch para manejar tres casos:
+Caso -1: Error al crear el proceso hijo, imprime un mensaje de error.
+Caso 0 (Proceso hijo): Imprime el PID del hijo y del padre, luego duerme por 20 segundos con sleep(20).
+Caso default (Proceso padre): Imprime el PID del padre y el PID del hijo, luego duerme por 30 segundos 
+con sleep(30).
+Fin de la ejecución:
+
+Después del switch, ambos procesos (padre e hijo) ejecutarán la línea: printf("Final de ejecucuión de %d\n", 
+getpid()); y terminarán con exit(0);, lo que indica que el programa terminó sin errores.
+
+
+Explicación de las correcciones:
+Corrección ortográfica: Corregimos el mensaje de error que se muestra cuando no se puede crear el proceso hijo.
+
+Revisión de las llamadas a sleep(): Aunque no hubo un error específico, es importante mantenerlas en mente, ya 
+que su correcto funcionamiento depende del sistema operativo.
+
+Revisión general del código: Aseguramos que las funciones y estructuras se comportan de acuerdo con lo esperado 
+para un programa que crea procesos con fork().
