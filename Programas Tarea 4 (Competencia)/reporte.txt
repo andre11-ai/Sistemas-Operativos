@@ -1,0 +1,10 @@
+Vehiculo ID:4 Estructura ID:9383 Chasis ID:886 Motor ID:2777 Llantas ID:6915 Interiores ID:7793
+Vehiculo ID:1 Estructura ID:8335 Chasis ID:5386 Motor ID:492 Llantas ID:6649 Interiores ID:1421
+Vehiculo ID:2 Estructura ID:2362 Chasis ID:27 Motor ID:8690 Llantas ID:59 Interiores ID:7763
+Vehiculo ID:3 Estructura ID:3926 Chasis ID:540 Motor ID:3426 Llantas ID:9172 Interiores ID:5736
+Vehiculo ID:7 Estructura ID:5211 Chasis ID:5368 Motor ID:2567 Llantas ID:6429 Interiores ID:5782
+Vehiculo ID:8 Estructura ID:1530 Chasis ID:2862 Motor ID:5123 Llantas ID:4067 Interiores ID:3135
+Vehiculo ID:9 Estructura ID:3929 Chasis ID:9802 Motor ID:4022 Llantas ID:3058 Interiores ID:3069
+Vehiculo ID:10 Estructura ID:8167 Chasis ID:1393 Motor ID:8456 Llantas ID:5011 Interiores ID:8042
+Vehiculo ID:5 Estructura ID:6229 Chasis ID:7373 Motor ID:4421 Llantas ID:4919 Interiores ID:3784
+Vehiculo ID:6 Estructura ID:8537 Chasis ID:5198 Motor ID:4324 Llantas ID:8315 Interiores ID:4370
